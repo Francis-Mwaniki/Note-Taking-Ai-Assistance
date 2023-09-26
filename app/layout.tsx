@@ -1,9 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { DM_Sans, Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
 const inter = Inter({ subsets: ['latin'] })
-
+const dm_sans= DM_Sans({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Your NoteAiAssistant',
   description: 'Use NoteAiAssistant to take notes and organize your thoughts.',
