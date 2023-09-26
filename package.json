@@ -20,6 +20,7 @@
     "drizzle-orm": "^0.28.6",
     "lucide-react": "^0.279.0",
     "next": "latest",
+    "openai": "^4.10.0",
     "pg": "^8.11.3",
     "react": "latest",
     "react-dom": "latest",

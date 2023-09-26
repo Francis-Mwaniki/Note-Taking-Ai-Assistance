@@ -1,9 +1,11 @@
-import { Quicksand} from 'next/font/google'
+import { Quicksand, DM_Sans, Inter} from 'next/font/google'
 import TypewriterEffect from '@/components/TypeWriterEffect'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowBigRightIcon } from 'lucide-react'
  const quicksand= Quicksand({ subsets: ['latin'] })
+  const dm_sans= DM_Sans({ subsets: ['latin'] })
+  const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <main className=" w-screen min-h-screen bg-gradient-to-tl from-gray-100 to-gray-300">
@@ -12,8 +14,8 @@ export default function Home() {
           Your Note Assistant.
         </h1>
         <div className="mt-2"></div>
-        <div className={quicksand.className}>
-          <p className="text-center text-gray-800 text-xl font-normal">Use NoteAiAssistant to take notes and organize your thoughts.</p>
+        <div className={dm_sans.className}>
+          <p className="text-center text-gray-800 text-xl font-normal">Use Note Ai Assistant to take notes and organize your thoughts.</p>
           <div className="mt-4"></div>
           <h2 className="text-center text-gray-800 text-xl font-semibold">
           <TypewriterEffect />
