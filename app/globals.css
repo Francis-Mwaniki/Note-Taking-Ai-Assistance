@@ -86,3 +86,38 @@
   background-color: #dadada;
   border-radius: 2px;
 }
+/* styles/globals.css */
+/* ... (existing styles) */
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+  cursor: pointer;
+}
+
+/* Mobile Menu List */
+#mobile-menu .active {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* Adjust as needed for your header height */
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  z-index: 1000;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+#mobile-menu {
+  transform: translateX(0);
+}
+
+.active{
+  border-radius: 2px;
+}
+
+/* ... (existing styles) */
