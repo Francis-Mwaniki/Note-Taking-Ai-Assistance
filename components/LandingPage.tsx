@@ -1,5 +1,6 @@
+"use client";
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
 import about from '@/public/about.png';
 import about2 from '@/public/about2.png';
 import TypewriterEffect from './TypeWriterEffect';
@@ -14,6 +15,11 @@ const poppins= Poppins({
 })
 const inter= Inter({ subsets: ['latin'] })
 const LandingPage = () => {
+  const [mobileMenuActive, setMobileMenuActive] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuActive(!mobileMenuActive);
+  };
   return (
     <div className={poppins.className}>
       {/* Header */}
@@ -21,19 +27,71 @@ const LandingPage = () => {
 
         <div className="container mx-auto flex justify-between items-center bg-gray-900  py-6 top-0 fixed inset-x-0">
          
-          <nav>
-            <ul className="flex space-x-6 sm:justify-start justify-center px-2">
-              <li><a href="#home" className="hover:text-blue-300 sm:text-3xl text-lg">Home</a></li>
-              <li><a href="#about" className="hover:text-blue-300 sm:text-3xl text-lg">About</a></li>
-              <li><a href="#services" className="hover:text-blue-300 sm:text-3xl text-lg">Services</a></li>
-              <li><a href="#contact" className="hover:text-blue-300 sm:text-3xl text-lg">Contact</a></li>
-            </ul>
-          </nav>
+
+<nav className="md:flex md:justify-between">
+  <div className="flex items-center justify-between">
+    
+    
+    <div className="md:hidden">
+        <button
+          id="mobile-menu-button"
+          className={`mobile-menu-button ${mobileMenuActive ? 'active' : ''}`}
+          onClick={toggleMobileMenu}>
+          {/* ... (svg icon) */}
+          {mobileMenuActive ? ( <svg
+            className="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>):(
+          <svg
+          className="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+          )}
+         
+        </button>
+      </div>
+  </div>
+  <ul
+    id="desktop-menu"
+    className="hidden md:flex space-x-6">
+    <li><a href="#home" className="hover:text-blue-300">Home</a></li>
+    <li><a href="#about" className="hover:text-blue-300">About</a></li>
+    <li><a href="#services" className="hover:text-blue-300">Services</a></li>
+    <li><a href="#contact" className="hover:text-blue-300">Contact</a></li>
+  </ul>
+ {mobileMenuActive && (
+   <ul
+   id="mobile-menu"
+   className={`mobile-menu py-3 gap-y-3 flex flex-col ${mobileMenuActive ? 'active' : ''}`}>
+   <li><a href="#home"  className="hover:text-blue-300" onClick={toggleMobileMenu}>Home</a></li>
+   <li><a href="#about" className="hover:text-blue-300" onClick={toggleMobileMenu}>About</a></li>
+   <li><a href="#services" className="hover:text-blue-300" onClick={toggleMobileMenu}>Services</a></li>
+   <li><a href="#contact" className="hover:text-blue-300" onClick={toggleMobileMenu}>Contact</a></li>
+   
+ </ul>
+ )}
+</nav>
         </div>
    
       <div className="h-24"></div>
           <div className={inter.className}>
-         <h1 className="text-5xl py-3 px-3 bg-gradient-to-r from-pink-900 via-gray-800 to-pink-600 bg-clip-text font-extrabold text-transparent tracking-tight">
+         <h1 className="text-5xl flex md:justify-start justify-center md:mx-2 mx-auto py-3 px-3 bg-gradient-to-r from-pink-900 via-gray-800 to-pink-600 bg-clip-text font-extrabold text-transparent tracking-tight">
             Ai Assistant.
           </h1>
       </div>
@@ -44,8 +102,8 @@ const LandingPage = () => {
       <section className=" sm:py-20 py-7 w-full" id="home">
         <div className="container mx-auto text-center">
         <div className={inter.className}>
-           <h1 className="text-5xl bg-gradient-to-r from-rose-900 via-blue-500 to-pink-600 bg-clip-text font-extrabold text-transparent tracking-tight">
-                Let us Automate your work with Ai Assistant.
+           <h1 className="sm:text-5xl text-4xl bg-gradient-to-r from-rose-900 via-blue-500 to-pink-600 bg-clip-text font-extrabold text-transparent tracking-tight">
+            Your Note Assistant.
           </h1>
           </div>
          
@@ -58,7 +116,7 @@ const LandingPage = () => {
           </h2>
           <Link className="text-gray-800 text-xl font-semibold"  href='/dashboard'>
       <Button className="mt-8 px-10 py-5">Get Started
-            <ArrowRight className="ml-2" size={24} /></Button>
+            <ArrowRight className="w-4 h-4 float-right" /></Button>
           </Link>
           
         </div>
@@ -100,6 +158,7 @@ const LandingPage = () => {
               <h3 className="text-xl font-semibold">AutoCompletions</h3>
               <p className="mt-4 text-gray-600">
                 Our Ai Autocompletes sentences for you so you can focus on what matters.
+                <ArrowRight className="w-4 h-4 float-right" />
                 </p>
             </div>
             <div className="bg-blue-100 p-6 rounded-lg shadow-md">
@@ -109,7 +168,8 @@ const LandingPage = () => {
               </h3>
               <p className="mt-4 text-gray-600">
                 Nice and easy to use editor to take notes and organize your thoughts.
-                .</p>
+                <ArrowRight className="w-4 h-4 float-right" />
+                </p>
             </div>
             <div className="bg-blue-100 p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold">
@@ -117,7 +177,8 @@ const LandingPage = () => {
               </h3>
               <p className="mt-4 text-gray-600">
                 Download your notes as PDF with a single click.
-                .</p>
+                 <ArrowRight className="w-4 h-4 float-right" />
+                </p>
             </div>
             <div className="bg-blue-100 p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold">
@@ -125,7 +186,8 @@ const LandingPage = () => {
               </h3>
               <p className="mt-4 text-gray-600">
                 Share your notes with your friends and family.
-                .</p>
+                <ArrowRight className="w-4 h-4 float-right" />
+                </p>
             </div>
           </div>
         </div>

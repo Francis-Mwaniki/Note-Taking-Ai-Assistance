@@ -51,10 +51,17 @@ const TipTapEditor = ({ note }: Props) => {
 
 
   const AutocompleteText=async (input:string)=>{
-    if (isAutocomplete) {
       setIsAutocomplete(true);
       await complete(input);
-    }
+
+      setTimeout(() => {
+        input = "";
+        setIsAutocomplete(false);
+
+      }
+      , 5000);
+
+
   }
   const editor = useEditor({
     autofocus: true,
@@ -72,6 +79,16 @@ const TipTapEditor = ({ note }: Props) => {
     lastCompletion.current = completion;
     editor.commands.insertContent(diff);
   }, [completion, editor]);
+
+  React.useEffect(() => {
+    if (!isAutocomplete) return;
+    const prompt = editor?.getText().split(" ").slice(-30).join(" ");
+    if (!prompt) return;
+    setGlobalPrompt(prompt);
+    complete(prompt);
+
+    
+  }, [isAutocomplete]);
 
   const debouncedEditorState = useDebounce(editorState, 500);
   React.useEffect(() => {
@@ -109,10 +126,12 @@ const TipTapEditor = ({ note }: Props) => {
         for AI autocomplete
       </span>
      <div className="flex flex-row gap-x-1  justify-start mt-4 items-center">
-     <Button disabled>
-        <a href={`/api/download/${note.id}`} >Download</a>
+     <Button>
+        <a href={`/api/download/${note.id}`}>Download</a>
       </Button>
-      <Button onClick={() => setIsAutocomplete(true)} variant="outline" disabled>
+      <Button onClick={() => 
+      AutocompleteText(globalPrompt)
+      } variant="outline">
         Autocomplete
       </Button>
      </div>
