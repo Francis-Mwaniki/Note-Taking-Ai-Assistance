@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { DM_Sans, Inter } from 'next/font/google'
 import { ClerkProvider } from '@clerk/nextjs'
+import Providers from '@/components/Providers'
 const inter = Inter({ subsets: ['latin'] })
 const dm_sans= DM_Sans({ subsets: ['latin'] })
 export const metadata: Metadata = {
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en" className=' bg-gradient-to-tl from-gray-100 to-gray-300'>
+      <Providers>
       <body className={inter.className}>{children}</body>
+      </Providers>
     </html>
     </ClerkProvider>
   )
