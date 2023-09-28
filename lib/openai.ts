@@ -1,12 +1,39 @@
 import { Configuration, OpenAIApi } from "openai-edge";
-
+import { createClient } from "pexels";
+const client = createClient(process.env.PEXELS_API_KEY!);
 const config = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(config);
 
+export async function generateImagePexel(imageDescription: string) {
+  try {
+    // Search for images based on the description and limit the result to one image
+    const searchResult = await client.photos.search({
+      query: imageDescription,
+      per_page: 1,
+      size: "small",
+    });
+
+    if (searchResult) {
+      // Extract the URL of the first image in the search results
+      const imageUrl = searchResult?.photos[0]?.src.medium;
+      console.log(`----- Image URL: ${imageUrl}------`);
+      return imageUrl;
+    } else {
+      const imageUrl = "https://source.unsplash.com/random/256x256";
+      return imageUrl;
+    }
+  } catch (error) {
+    console.error("Error fetching image:", error);
+    throw error;
+  }
+}
+
+
 export async function generateImagePrompt(name: string) {
+  await generateImagePexel(name);
   try {
     const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
@@ -22,6 +49,7 @@ export async function generateImagePrompt(name: string) {
         },
       ],
     });
+    /* search one image from pexel */
     const data = await response.json();
     const image_description = data.choices[0].message.content;
     return image_description as string;

@@ -86,6 +86,11 @@ const TipTapEditor = ({ note }: Props) => {
     if (!prompt) return;
     setGlobalPrompt(prompt);
     complete(prompt);
+    setTimeout(() => {
+      setGlobalPrompt("");
+    }
+    , 5000);
+    
 
     
   }, [isAutocomplete]);
@@ -105,7 +110,7 @@ const TipTapEditor = ({ note }: Props) => {
   }, [debouncedEditorState]);
   return (
     <>
-      <div className="flex">
+      <div className="flex sm:w-1/2 w-full mx-auto">
         {editor && <TipTapMenuBar editor={editor} />}
         <Button disabled variant={"outline"}>
           {saveNote.isLoading ?   (<Loader2 className="w-6 h-6 animate-spin" />) : 
@@ -114,7 +119,7 @@ const TipTapEditor = ({ note }: Props) => {
         </Button>
       </div>
 
-      <div className="prose prose-sm w-full mt-4">
+      <div className="prose prose-sm  mt-4 text-center flex justify-center items-center mx-auto sm:w-3/4 w-[100%]">
         <EditorContent editor={editor} />
       </div>
       <div className="h-4"></div>

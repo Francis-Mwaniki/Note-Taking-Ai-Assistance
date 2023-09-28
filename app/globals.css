@@ -79,9 +79,25 @@
 }
 
 .tiptap.ProseMirror {
-  outline: none;
+  outline: #d1d5db solid 0.5px;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+
+  width: 100%;
+  min-width: 880px;
+  max-width: 70%;
+  display: flex;
+  justify-items: flex-start;
+  align-items: flex-start;
+
 }
 
+@media (max-width: 768px) {
+  .tiptap.ProseMirror {
+    min-width: 340px;
+    max-width: 100%;
+  }
+}
 .is-active {
   background-color: #dadada;
   border-radius: 2px;
