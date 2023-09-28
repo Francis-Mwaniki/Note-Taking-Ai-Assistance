@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import { $notes } from "@/lib/db/schema";
-import { generateImage, generateImagePrompt } from "@/lib/openai";
+import { generateImage,generateImagePexel } from "@/lib/openai";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
@@ -16,14 +16,10 @@ export async function POST(req:Request){
     if(!name){
         return new NextResponse('Name is required',{status:400})
     }
-    const image_description=await generateImagePrompt(name);
-    console.log({image_description});
+  
+    console.log({name});
 
-    if(!image_description){
-        return new NextResponse('Image description is required',{status:400})
-    }
-    
-     const image_url=await generateImage(image_description);
+     const image_url=await generateImagePexel(name);
 
         if(!image_url){
           console.log(`---Failed to generate Image!----`);

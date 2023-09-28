@@ -34,7 +34,7 @@ const Notebook = async ({params:{noteId}}: Props) => {
     const notesData = notes[0]
 
     return (
-        <div className="min-h-screen grainy p-8">
+        <div className="min-h-screen grainy sm:p-8 p-2">
         <div className="max-w-4xl mx-auto">
           <div className="border shadow-xl border-stone-200 rounded-lg p-4 flex items-center flex-wrap">
             <Link href="/dashboard">
@@ -56,7 +56,7 @@ const Notebook = async ({params:{noteId}}: Props) => {
           </div>
   
           <div className="h-4"></div>
-          <div className="border-stone-200 shadow-xl border rounded-lg px-16 py-8 w-full">
+          <div className="border-stone-200 shadow-xl border rounded-lg px-2 py-8 w-full">
             <TipTapEditor note={notesData} />
           </div>
         </div>

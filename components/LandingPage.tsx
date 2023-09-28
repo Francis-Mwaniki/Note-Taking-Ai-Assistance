@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import about from '@/public/about.png';
 import about2 from '@/public/about2.png';
+import about3 from '@/public/about3.png';
 import TypewriterEffect from './TypeWriterEffect';
 import Link from 'next/link'
 import { Quicksand, DM_Sans, Inter, Poppins} from 'next/font/google'
@@ -25,7 +26,7 @@ const LandingPage = () => {
       {/* Header */}
       <header className=" text-white relative">
 
-        <div className="container mx-auto flex justify-between items-center bg-gray-900  py-6 top-0 fixed inset-x-0">
+        <div className="container mx-auto flex justify-between items-center bg-gray-900  py-4 top-0 fixed inset-x-0">
          
 
 <nav className="md:flex md:justify-between">
@@ -69,20 +70,31 @@ const LandingPage = () => {
   </div>
   <ul
     id="desktop-menu"
-    className="hidden md:flex space-x-6">
-    <li><a href="#home" className="hover:text-blue-300">Home</a></li>
+    className="hidden md:flex space-x-6 justify-evenly mx-auto gap-x-96">
+   <li className='flex justify-center flex-row space-x-5 items-center'>
+   <li><a href="#home" className="hover:text-blue-300">Home</a></li>
     <li><a href="#about" className="hover:text-blue-300">About</a></li>
     <li><a href="#services" className="hover:text-blue-300">Services</a></li>
     <li><a href="#contact" className="hover:text-blue-300">Contact</a></li>
+    <li><a href="/dashboard" className="hover:text-blue-300">Dashboard</a></li>
+   </li>
+   <a className="text-gray-800 text-lg px-10 flex justify-center items-center mx-auto py-3  rounded-lg bg-gray-300"  href='/dashboard'>
+   Get Started 
+    <ArrowRight className="w-4 h-4 float-right" />
+    </a>
   </ul>
  {mobileMenuActive && (
    <ul
    id="mobile-menu"
-   className={`mobile-menu py-3 gap-y-3 flex flex-col ${mobileMenuActive ? 'active' : ''}`}>
+   className={`mobile-menu gap-y-5 py-5 flex flex-col ${mobileMenuActive ? 'active' : ''}`}>
    <li><a href="#home"  className="hover:text-blue-300" onClick={toggleMobileMenu}>Home</a></li>
    <li><a href="#about" className="hover:text-blue-300" onClick={toggleMobileMenu}>About</a></li>
    <li><a href="#services" className="hover:text-blue-300" onClick={toggleMobileMenu}>Services</a></li>
    <li><a href="#contact" className="hover:text-blue-300" onClick={toggleMobileMenu}>Contact</a></li>
+   <a className="text-gray-800 text-xl  px-10  flex justify-self-center items-center mx-auto w-full mt-2 justify-center bg-gray-300 rounded-lg py-3"  href='/dashboard'>
+  Get Started
+   <ArrowRight className="w-4 h-4 float-right" />
+   </a>
    
  </ul>
  )}
@@ -144,6 +156,17 @@ const LandingPage = () => {
               <h2 className="text-3xl font-semibold">Increase Productivity</h2>
               <p className="mt-4 text-gray-600">
                 Productivity is the key to success. We help you increase your productivity by automating your work.</p>
+            </div>
+          </div>
+          <div className="flex items-center justify-center space-x-10 sm:flex-row flex-col gap-2">
+            <div className="sm:w-1/2 w-full">
+              <Image src={about3} width={958} height={765} alt="About Us" className="rounded-lg" />
+            </div>
+            <div className="sm:w-1/2 w-full ">
+              <h2 className="text-3xl font-semibold">share with friends Easily</h2>
+              <p className="mt-4 text-gray-600">
+                Share your notes with your friends and family with a single click, no need to copy and paste, just share the link and you are done
+                .</p>
             </div>
           </div>
         </div>
