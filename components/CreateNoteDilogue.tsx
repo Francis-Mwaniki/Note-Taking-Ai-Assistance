@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { Toaster } from "react-hot-toast";
 import {
   Dialog,
   DialogContent,
@@ -15,6 +16,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Quicksand } from "next/font/google";
 import { useMutation } from "@tanstack/react-query";
+import { toast } from 'react-hot-toast';
 import {useRouter} from "next/navigation";
 const quicksand = Quicksand({ subsets: ["latin"] });
 
@@ -51,9 +53,15 @@ const CreateNoteDialogue = (props: Props) => {
       setCreating(true);
       e.preventDefault();
       if (input.trim().length === 0) {
+        toast.error("Please enter a name for the notebook");
         return;
       }
       if(input === ""){
+        toast.error("Please enter a name for the notebook");
+        return;
+      }
+      if(e.currentTarget.value === ""){
+        toast.error("Please enter a name for the notebook");
         return;
       }
       await createNoteBook.mutateAsync({
@@ -65,6 +73,12 @@ const CreateNoteDialogue = (props: Props) => {
           uploadToFirebase.mutate(note_id);
           setCreating(false);
           setInput("");
+          toast.success("Notebook created successfully");
+          setTimeout(() => {
+            toast.success("You'll be redirected to the notebook in 2 seconds");
+          }
+          , 2000);
+
 
           router.push(`/notebook/${note_id}`);
 
@@ -72,6 +86,7 @@ const CreateNoteDialogue = (props: Props) => {
         },
         onError: (error) => {
           setCreating(false); 
+          toast.error("Error creating notebook");
           console.log(error);
         }
       }
@@ -97,16 +112,16 @@ const CreateNoteDialogue = (props: Props) => {
        {!creating && (<> You can create a new note by clicking the button below.</>)}
           </DialogDescription>
         </DialogHeader>
-        {creating ? (
+        
       <>
-     <div className="flex flex-row justify-center items-center gap-x-1">
-     Creating...
+    {createNoteBook.isLoading && input ? (<>
+      <div className="flex flex-row justify-center items-center gap-x-1">
+     please wait...
         <Loader2 className="animate-spin " size={24} />
        
      </div>
-      </>
-) : (
-  <form onSubmit={handleSubmit}>
+    </>):(
+       <form onSubmit={handleSubmit}>
     <Input
       type="text"
       value={input}
@@ -127,10 +142,16 @@ const CreateNoteDialogue = (props: Props) => {
       </Button>
     </div>
   </form>
-)}
+    )}
+      </>
+
+ 
+
 
       </DialogContent>
     </Dialog>
+
+    <Toaster  />
       </>
   
   );
