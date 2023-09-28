@@ -6,7 +6,10 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { Dialog } from "./ui/dialog";
+import { Toaster } from "react-hot-toast";
+import { toast } from 'react-hot-toast';
 const confirm ="Are you sure?"  
+
 type Props = {
   noteId: number;
 };
@@ -49,9 +52,11 @@ const DeleteButton = ({ noteId }: Props) => {
            onClick={() => {
              deleteNote.mutate(undefined, {
                onSuccess: () => {
+                  toast.success("Note deleted successfully");
                  router.push("/dashboard");
                },
                onError: (err) => {
+                  toast.error("Error deleting note");
                  console.error(err);
                },
              });
@@ -70,6 +75,7 @@ const DeleteButton = ({ noteId }: Props) => {
      </div>
    </Dialog>
    )}
+    <Toaster  />
    </>
   );
 };

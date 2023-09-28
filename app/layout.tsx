@@ -17,10 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-    <html lang="en" className=' bg-gradient-to-tl from-gray-100 to-gray-300'>
+    <html lang="en" className=' bg-gradient-to-tl from-gray-100 to-gray-300' suppressHydrationWarning>
+
       <Providers>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className} suppressHydrationWarning>{children}</body>
+    
       </Providers>
+    
     </html>
     </ClerkProvider>
   )

@@ -42,6 +42,7 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "react-hot-toast": "^2.4.1",
     "autoprefixer": "latest",
     "encoding": "^0.1.13",
     "eslint": "latest",
