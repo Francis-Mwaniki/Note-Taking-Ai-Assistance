@@ -212,6 +212,19 @@ const LandingPage = () => {
                 <ArrowRight className="w-4 h-4 float-right" />
                 </p>
             </div>
+            <div className="bg-blue-100 p-6 rounded-lg shadow-md">
+            <a href="/InternshipR">
+              <h3 className="text-xl font-semibold">
+               Internship Reports 
+              </h3>
+              <p className="mt-4 text-gray-600">
+                Ai Assistant helps you write your internship reports.
+                
+                <ArrowRight className="w-4 h-4 float-right" />
+              
+                </p>
+                </a>
+            </div>
           </div>
         </div>
       </section>
