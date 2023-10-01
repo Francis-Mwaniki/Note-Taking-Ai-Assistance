@@ -103,7 +103,20 @@ console.log(companyName);
           Report Title: ${reportTitle}
           Report Type: ${reportType}
           Report Format: ${reportFormat}
-         Generate a detailed INDUSTRIAL ATTACHMENT report with the following  #IMPORTANT start with table of contents AND CREATE A DETAILED REPORT ON BELOW TOPICS: 
+         Generate a detailed INDUSTRIAL ATTACHMENT report with the following  #IMPORTANT start with table of contents
+
+
+       
+        `,
+      },
+    ],
+    stream: true,
+  });
+  const stream = OpenAIStream(response);
+  return new StreamingTextResponse(stream);
+}
+/* 
+ AND CREATE A DETAILED REPORT ON BELOW TOPICS: 
         
           1: Introduction hint: use the details provided above to create an introduction
            2: Declaration -please assume that you have done the industrial attachment
@@ -112,7 +125,7 @@ console.log(companyName);
            5: Executive Summary
            6: Introduction - Background
            7: Objectives -objectives of the industrial attachment
-           8: Organization profile -please descibe in detailed based on details provided above: company profile -physical location, history, mission, vision, values, products and services, organizational structure, departments, staff, predict based on the company name 
+           8: Organization profile -please describe in detailed based on details provided above: company profile -physical location, history, mission, vision, values, products and services, organizational structure, departments, staff, predict based on the company name 
            9: Activities - activities carried out during the industrial attachment - predict based on the details provided above
            10:  Results and Discussion - predict based on the details provided above
            11: Conclusion - predict based on the details provided above 
@@ -126,14 +139,4 @@ console.log(companyName);
 
 
          
-
-
-       
-        `,
-      },
-    ],
-    stream: true,
-  });
-  const stream = OpenAIStream(response);
-  return new StreamingTextResponse(stream);
-}
+*/
