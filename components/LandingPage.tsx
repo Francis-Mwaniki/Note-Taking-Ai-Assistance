@@ -102,7 +102,7 @@ const LandingPage = () => {
         </div>
    
       <div className="h-24"></div>
-          <div className={inter.className}>
+          <div >
          <h1 className="text-5xl flex md:justify-start justify-center md:mx-2 mx-auto py-3 px-3 bg-gradient-to-r from-pink-900 via-gray-800 to-pink-600 bg-clip-text font-extrabold text-transparent tracking-tight">
             Ai Assistant.
           </h1>
@@ -113,9 +113,9 @@ const LandingPage = () => {
       {/* Hero Section */}
       <section className=" sm:py-20 py-7 w-full" id="home">
         <div className="container mx-auto text-center">
-        <div className={inter.className}>
+        <div >
            <h1 className="sm:text-5xl text-4xl bg-gradient-to-r from-rose-900 via-blue-500 to-pink-600 bg-clip-text font-extrabold text-transparent tracking-tight">
-            Your Note Assistant.
+            Your Assistant.
           </h1>
           </div>
          
@@ -143,7 +143,7 @@ const LandingPage = () => {
             </div>
             <div className="sm:w-1/2 w-full ">
               <h2 className="text-3xl font-semibold">About Ai Assistance</h2>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 ">
                 We are a team of web developers working to create the best web solutions for you. We love what we do and we love building things that people love to use.
                 .</p>
             </div>
@@ -154,7 +154,7 @@ const LandingPage = () => {
             </div>
             <div className="sm:w-1/2 w-full  mt-4">
               <h2 className="text-3xl font-semibold">Increase Productivity</h2>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 ">
                 Productivity is the key to success. We help you increase your productivity by automating your work.</p>
             </div>
           </div>
@@ -164,7 +164,7 @@ const LandingPage = () => {
             </div>
             <div className="sm:w-1/2 w-full ">
               <h2 className="text-3xl font-semibold">share with friends Easily</h2>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 ">
                 Share your notes with your friends and family with a single click, no need to copy and paste, just share the link and you are done
                 .</p>
             </div>
@@ -177,47 +177,47 @@ const LandingPage = () => {
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-extrabold">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-            <div className="bg-blue-100 p-6 rounded-lg shadow-md">
+            <div className="bg-blue-100 hover:bg-gray-900 hover:text-white p-6 rounded-lg shadow-md ">
               <h3 className="text-xl font-semibold">AutoCompletions</h3>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 ">
                 Our Ai Autocompletes sentences for you so you can focus on what matters.
                 <ArrowRight className="w-4 h-4 float-right" />
                 </p>
             </div>
-            <div className="bg-blue-100 p-6 rounded-lg shadow-md">
+            <div className="bg-blue-100 hover:bg-gray-900 hover:text-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold">
                 Note Taking
 
               </h3>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 ">
                 Nice and easy to use editor to take notes and organize your thoughts.
                 <ArrowRight className="w-4 h-4 float-right" />
                 </p>
             </div>
-            <div className="bg-blue-100 p-6 rounded-lg shadow-md">
+            <div className="bg-blue-100 hover:bg-gray-900 hover:text-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold">
                 Download Notes as PDF
               </h3>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 ">
                 Download your notes as PDF with a single click.
                  <ArrowRight className="w-4 h-4 float-right" />
                 </p>
             </div>
-            <div className="bg-blue-100 p-6 rounded-lg shadow-md">
+            <div className="bg-blue-100 hover:bg-gray-900 hover:text-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-semibold">
                 Share Notes
               </h3>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 ">
                 Share your notes with your friends and family.
                 <ArrowRight className="w-4 h-4 float-right" />
                 </p>
             </div>
-            <div className="bg-blue-100 p-6 rounded-lg shadow-md">
+            <div className="bg-blue-100 hover:bg-gray-900 hover:text-white p-6 rounded-lg shadow-md">
             <a href="/InternshipR">
               <h3 className="text-xl font-semibold">
                Internship Reports 
               </h3>
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 ">
                 Ai Assistant helps you write your internship reports.
                 
                 <ArrowRight className="w-4 h-4 float-right" />

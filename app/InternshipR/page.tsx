@@ -7,18 +7,36 @@ import { Textarea } from '@/components/ui/textarea';
 import { Toaster } from "react-hot-toast";
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
+import { EditorContent, useEditor } from "@tiptap/react";
 import { Button } from '@/components/ui/button';
 import { toast } from 'react-hot-toast';
 import { ArrowBigLeft, ArrowLeft, Copy, Save, StopCircle } from 'lucide-react';
+import StarterKit from '@tiptap/starter-kit';
+import Link from 'next/link';
+
 const ReportPage = () => {
+       const [generatedReport, setGeneratedReport] = useState('');
+const [editorState, setEditorState] = React.useState(
+    `<span>...</span>`
+  );
+
+      const editor = useEditor({
+    autofocus: true,
+    extensions: [StarterKit],
+    content: generatedReport,
+    onUpdate: ({ editor }) => {
+      setGeneratedReport(editor.getHTML());
+    },
+  });
+   
 
     
-    const { complete, completion,stop, isLoading } = useCompletion({
+    const { complete, completion,stop, isLoading, } = useCompletion({
     api : "/api/reports",
     
    });
  
-    const [generatedReport, setGeneratedReport] = useState('');
+ 
     const lastCompletion = React.useRef("");
     /* console.log(description);
 console.log(internshipTitle);
@@ -118,14 +136,16 @@ console.log(companyName); */
                    </div>
 
                         <div className='flex flex-col gap-y-3 sm:w-3/4 mx-auto w-full'>
-                            <Textarea
+                           
+                             <div className="prose prose-sm  mt-4 text-start flex justify-center items-center mx-auto sm:w-3/4 w-[100%]">
+                             <Textarea
                                 value={generatedReport}
                                 onChange={() => {}}
                                 className='w-full'
                                 rows={30}
-
-                                
+          
                             />
+                        </div>
                             {/* stop */}
                            {isLoading && (
                              <Button
@@ -165,6 +185,19 @@ console.log(companyName); */
                                     <Save size={24} className='mr-2' />
                                     Save
                                 </Button>
+                                {/* REGENERATE */}
+                                <Button
+                                    className='btn btn-primary'
+                                    onClick={() => {
+                                       
+                                        complete(generatedReport);
+                                    }
+                                    }
+                                >
+                                    <ArrowBigLeft size={24} className='mr-2' />
+                                    Regenerate
+                                </Button>
+
 
                             </div>
                         </div>
@@ -173,7 +206,15 @@ console.log(companyName); */
             
             )}
             {!generatedReport && (
+               <>
+                <Link href='/' >
+                <Button className='btn btn-primary'>
+                    <ArrowLeft size={24} className='mr-2' />
+                    Back
+                </Button>
+                </Link>
                 <ReportForm onGenerateReport={handleGenerateReport} />
+               </>
             )}
                 <Toaster  />
             
