@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import about from '@/public/about.png';
 import about2 from '@/public/about2.png';
 import about3 from '@/public/about3.png';
+import cv2 from '@/public/cv2.png';
 import TypewriterEffect from './TypeWriterEffect';
 import Link from 'next/link'
 import { Quicksand, DM_Sans, Inter, Poppins} from 'next/font/google'
@@ -133,6 +134,28 @@ const LandingPage = () => {
           
         </div>
       </section>
+
+     { /* Generate  a cover letter */}
+      <section className="py-16" id="generate">
+        <div className="container mx-auto">
+          <div className="flex items-center justify-center space-x-10 sm:flex-row flex-col gap-2">
+            <div className="sm:w-1/2 w-full">
+              <h2 className="text-3xl font-semibold">Generate a cover letter</h2>
+              <p className="mt-4 ">
+                Generate a cover letter with a single click. Fill in the details and get your cover letter in seconds.
+                .</p>
+                  <Link className="text-gray-800 text-xl font-semibold"  href='/CoverLetter'>
+      <Button className="mt-8 px-10 py-5"> Generate Now
+            <ArrowRight className="w-4 h-4 float-right" /></Button>
+          </Link>
+            </div>
+            <div className="sm:w-1/2 w-full">
+              <Image src={cv2} width={958} height={765} alt="About Us" className="rounded-lg" />
+            </div>
+          </div>
+        </div>
+        </section>
+      
 
       {/* About Section */}
       <section className=" py-16" id="about">
