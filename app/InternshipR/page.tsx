@@ -97,7 +97,7 @@ console.log(companyName); */
           const diff = completion.slice(lastCompletion.current.length);
           lastCompletion.current = completion;
           console.log(completion);
-          setGeneratedReport(completion);
+          setGeneratedReport(diff);
 
 
 
@@ -139,7 +139,7 @@ console.log(companyName); */
                            
                              <div className="prose prose-sm  mt-4 text-start flex justify-center items-center mx-auto sm:w-3/4 w-[100%]">
                              <Textarea
-                                value={generatedReport}
+                                value={completion}
                                 onChange={() => {}}
                                 className='w-full'
                                 rows={30}
