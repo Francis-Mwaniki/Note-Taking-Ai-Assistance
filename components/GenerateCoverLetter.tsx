@@ -198,7 +198,7 @@ onGenerateReport({ companyName, yearOfExperience: Number(yearOfExperience), your
                   />
                 </div>
                  <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="project-title">project Title (optional)</Label>
+                  <Label htmlFor="project-title">project Title  </Label>
                   <Input
                     id="project-title"
                     placeholder="project-title"

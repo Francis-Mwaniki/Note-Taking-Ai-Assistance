@@ -83,6 +83,8 @@ const LandingPage = () => {
    Get Started 
     <ArrowRight className="w-4 h-4 float-right" />
     </a>
+   
+  
   </ul>
  {mobileMenuActive && (
    <ul
@@ -242,6 +244,19 @@ const LandingPage = () => {
               </h3>
               <p className="mt-4 ">
                 Ai Assistant helps you write your internship reports.
+                
+                <ArrowRight className="w-4 h-4 float-right" />
+              
+                </p>
+                </a>
+            </div>
+            <div className="bg-blue-100 hover:bg-gray-900 hover:text-white p-6 rounded-lg shadow-md">
+            <a href="/CoverLetter">
+              <h3 className="text-xl font-semibold">
+                Cover Letter
+              </h3>
+              <p className="mt-4 ">
+                Ai Assistant helps you write your cover letters.
                 
                 <ArrowRight className="w-4 h-4 float-right" />
               
