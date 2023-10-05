@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Button } from "@/components/ui/button"
+import { Poppins }  from 'next/font/google'
 import {
   Card,
   CardContent,
@@ -19,7 +20,12 @@ import {
 } from "@/components/ui/select"
 import { Progress } from "./ui/progress"
 import { ChevronDown, ChevronDownCircle, ChevronUp, ChevronUpCircle, Loader2, Sparkles } from "lucide-react"
+
 import { Textarea } from "./ui/textarea"
+const poppins= Poppins({
+  subsets: ['latin'],
+  weight: '400'
+})
 type Props = {
     onGenerateReport: (data: { companyName: string, companyAddress: string, yourState: string, yearOfExperience: number,description:string,
       jobTitle: string,
@@ -98,6 +104,7 @@ onGenerateReport({ companyName, yearOfExperience: Number(yearOfExperience), your
         
 
     return (
+       <div className={poppins.className}>
         <div className="  sm:py-24 py-20  bg-white flex justify-center items-center mx-auto overflow-y-auto  bottom-4">
          <Card className="sm:w-[550px] w-full overflow-auto ">
           <CardHeader>
@@ -253,6 +260,8 @@ onGenerateReport({ companyName, yearOfExperience: Number(yearOfExperience), your
           </CardFooter>
         </Card>   
         </div>
+        
+       </div>
         
   )
 }
