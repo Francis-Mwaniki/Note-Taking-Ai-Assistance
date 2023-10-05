@@ -99,7 +99,7 @@ const LandingPage = () => {
    <li><a href="#about" className="hover:bg-gray-700 rounded-lg py-2 px-4 hover: hover:duration-300 hover:ease-in-out hover:scale-105 hover:opacity-70 hover:" onClick={toggleMobileMenu}>About</a></li>
    <li><a href="#services" className="hover:bg-gray-700 rounded-lg py-2 px-4 hover: hover:duration-300 hover:ease-in-out hover:scale-105 hover:opacity-70 hover:" onClick={toggleMobileMenu}>Services</a></li>
    <li><a href="#contact" className="hover:bg-gray-700 rounded-lg py-2 px-4 hover: hover:duration-300 hover:ease-in-out hover:scale-105 hover:opacity-70 hover:" onClick={toggleMobileMenu}>Contact</a></li>
-   <a className="text-gray-800 text-xl  px-10  flex justify-self-center items-center mx-auto w-full mt-2 justify-center  hover:duration-300 hover:ease-in-out"  href='/dashboard'>
+   <a className="text-gray-800 text-xl  px-10 py-3  flex justify-self-center items-center mx-auto w-full mt-2 justify-center  hover:duration-300 hover:ease-in-out bg-gray-200 rounded-lg"  href='/dashboard'>
   Get Started
    <ArrowRight className="w-4 h-4 float-right" />
    </a>
@@ -147,7 +147,7 @@ const LandingPage = () => {
      { /* Generate  a cover letter */}
       <section className="py-16" id="generate">
         <div className="container mx-auto">
-          <div className="flex items-center justify-center space-x-10 sm:flex-row flex-col gap-2">
+          <div className="flex items-center justify-center space-x-10 sm:flex-row flex-col-reverse py-4 sm:py-1 gap-2">
             <div className="sm:w-1/2 w-full"  
            data-aos="fade-up"
      data-aos-anchor-placement="center-bottom"
