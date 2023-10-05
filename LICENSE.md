@@ -1,4 +1,4 @@
-MIT License
+## MIT License
 
 AI Note Taking Assistance
 
