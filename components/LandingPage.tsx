@@ -4,7 +4,9 @@ import React, { useEffect, useState } from 'react';
 import about from '@/public/about.png';
 import about2 from '@/public/about2.png';
 import about3 from '@/public/about3.png';
-import cv2 from '@/public/cv2.png';
+import fl from '@/public/fl.png';
+import cva from '@/public/cva.png';
+import gs from '@/public/gs.jpg';
 import TypewriterEffect from './TypeWriterEffect';
 import Link from 'next/link'
 import { Quicksand, DM_Sans, Inter, Poppins} from 'next/font/google'
@@ -148,11 +150,11 @@ const LandingPage = () => {
       <section className="py-16" id="generate">
         <div className="container mx-auto">
           <div className="flex items-center justify-center space-x-10 sm:flex-row flex-col-reverse py-4 sm:py-1 gap-2">
-            <div className="sm:w-1/2 w-full"  
+            <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col"  
            data-aos="fade-up"
      data-aos-anchor-placement="center-bottom"
             >
-              <h2 className="text-3xl font-semibold">Generate a cover letter</h2>
+              <h2 className="text-3xl font-semibold sm:text-start text-center">Generate a cover letter</h2>
               <p className="mt-4 ">
                 Generate a cover letter with a single click. Fill in the details and get your cover letter in seconds.
                 .</p>
@@ -164,11 +166,11 @@ const LandingPage = () => {
             <ArrowRight className="w-4 h-4 float-right" /></Button>
           </Link>
             </div>
-            <div className="sm:w-1/2 w-full"
+            <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col"
            data-aos="fade-up"
      data-aos-anchor-placement="center-bottom"
             >
-              <Image src={about} width={958} height={765} alt="About Us" className="rounded-lg" />
+              <Image src={fl} width={958} height={765} alt="About Us" className="rounded-lg" />
             </div>
           </div>
         </div>
@@ -177,52 +179,76 @@ const LandingPage = () => {
 
       {/* About Section */}
       <section className=" py-16" id="about">
-        <div className="container mx-auto">
+        <div className="  px-4 overflow-hidden">
           <div className="flex items-center justify-center space-x-10 sm:flex-row flex-col gap-2">
-            <div className="sm:w-1/2 w-full"
+            <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col"
            data-aos="fade-up"
      data-aos-anchor-placement="center-bottom"
             >
               <Image src={about} width={958} height={765} alt="About Us" className="rounded-lg" />
             </div>
-            <div className="sm:w-1/2 w-full "
+            <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col "
            data-aos="fade-up"
      data-aos-anchor-placement="center-bottom"
             >
-              <h2 className="text-3xl font-semibold">About Ai Assistance</h2>
+              <h2 className="text-3xl font-semibold sm:text-start text-center ">About Ai Assistance</h2>
               <p className="mt-4 ">
                 We are a team of web developers working to create the best web solutions for you. We love what we do and we love building things that people love to use.
                 .</p>
             </div>
           </div>
           <div className="flex items-center justify-center space-x-10 sm:flex-row-reverse flex-col gap-2">
-            <div className="sm:w-1/2 w-full"
+            <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col"
            data-aos="fade-up"
      data-aos-anchor-placement="center-bottom"
             >
               <Image src={about2} width={958} height={765} alt="About Us" className="rounded-lg" />
             </div>
-            <div className="sm:w-1/2 w-full  mt-4"
+
+     
+
+            <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col  mt-4 pr-3" 
            data-aos="fade-up"
      data-aos-anchor-placement="center-bottom"
             >
-              <h2 className="text-3xl font-semibold">Increase Productivity</h2>
-              <p className="mt-4 ">
-                Productivity is the key to success. We help you increase your productivity by automating your work.</p>
+              <h2 className="text-3xl font-semibold text-start  pr-4">Increase Productivity</h2>
+              <p className="mt-4">
+                We help you increase your productivity by automating your work.</p>
             </div>
           </div>
+
+          {/* who are we */}
+          <div className="flex items-center justify-center space-x-10 sm:flex-row flex-col-reverse gap-2 py-7 sm:py-2">
+            <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col"
+           data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+              >
+                <h2 className="text-3xl font-semibold sm:text-start text-center">What we do</h2>
+                <p className="mt-4 ">
+                  We help you take notes and organize your thoughts with our Ai Assistant. We also help you write your internship reports and cover letters with our Ai Assistant
+                  .</p>
+              </div>
+              <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col "
+            data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+              >
+                <Image src={cva} width={958} height={765} alt="About Us" className="rounded-lg" />
+              </div>
+            </div>
+
+
           <div className="flex items-center justify-center space-x-10 sm:flex-row flex-col gap-2">
-            <div className="sm:w-1/2 w-full"
+            <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col"
            data-aos="fade-up"
      data-aos-anchor-placement="center-bottom"
             >
               <Image src={about3} width={958} height={765} alt="About Us" className="rounded-lg" />
             </div>
-            <div className="sm:w-1/2 w-full "
+            <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col "
            data-aos="fade-up"
      data-aos-anchor-placement="center-bottom"
             >
-              <h2 className="text-3xl font-semibold">share with friends Easily</h2>
+              <h2 className="text-3xl font-semibold sm:text-start text-center">share with friends Easily</h2>
               <p className="mt-4 ">
                 Share your notes with your friends and family with a single click, no need to copy and paste, just share the link and you are done
                 .</p>
@@ -236,7 +262,7 @@ const LandingPage = () => {
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-extrabold">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 overflow-hidden">
-            <div className="bg-gray-600  cursor-pointer text-white p-6 rounded-lg shadow-md hover: hover:duration-300 hover:ease-in-out hover:scale-110 hover:bg-gray-800 " 
+            <div className="bg-gray-700  cursor-pointer text-white p-6 rounded-lg shadow-md hover: hover:duration-300 hover:ease-in-out hover:scale-110 hover:bg-gray-800 " 
             data-aos="zoom-out"
             >
               <h3 className="text-xl font-semibold">AutoCompletions</h3>
@@ -245,7 +271,7 @@ const LandingPage = () => {
                 <ArrowRight className="w-4 h-4 float-right" />
                 </p>
             </div>
-            <div className="bg-gray-600  cursor-pointer text-white p-6 rounded-lg shadow-md hover: hover:duration-300 hover:ease-in-out hover:scale-110 hover:bg-gray-800 " 
+            <div className="bg-gray-700  cursor-pointer text-white p-6 rounded-lg shadow-md hover: hover:duration-300 hover:ease-in-out hover:scale-110 hover:bg-gray-800 " 
             data-aos="zoom-out"
             >
               <h3 className="text-xl font-semibold">
@@ -257,7 +283,7 @@ const LandingPage = () => {
                 <ArrowRight className="w-4 h-4 float-right" />
                 </p>
             </div>
-            <div className="bg-gray-600  cursor-pointer text-white p-6 rounded-lg shadow-md hover: hover:duration-300 hover:ease-in-out hover:scale-110 hover:bg-gray-800 " 
+            <div className="bg-gray-700  cursor-pointer text-white p-6 rounded-lg shadow-md hover: hover:duration-300 hover:ease-in-out hover:scale-110 hover:bg-gray-800 " 
             data-aos="zoom-out"
             >
               <h3 className="text-xl font-semibold">
@@ -268,7 +294,7 @@ const LandingPage = () => {
                  <ArrowRight className="w-4 h-4 float-right" />
                 </p>
             </div>
-            <div className="bg-gray-600  cursor-pointer text-white p-6 rounded-lg shadow-md hover: hover:duration-300 hover:ease-in-out hover:scale-110 hover:bg-gray-800 " 
+            <div className="bg-gray-700  cursor-pointer text-white p-6 rounded-lg shadow-md hover: hover:duration-300 hover:ease-in-out hover:scale-110 hover:bg-gray-800 " 
             data-aos="zoom-out"
             >
               <h3 className="text-xl font-semibold">
@@ -279,7 +305,7 @@ const LandingPage = () => {
                 <ArrowRight className="w-4 h-4 float-right" />
                 </p>
             </div>
-            <div className="bg-gray-600  cursor-pointer text-white p-6 rounded-lg shadow-md hover: hover:duration-300 hover:ease-in-out hover:scale-110 hover:bg-gray-800 " 
+            <div className="bg-gray-700  cursor-pointer text-white p-6 rounded-lg shadow-md hover: hover:duration-300 hover:ease-in-out hover:scale-110 hover:bg-gray-800 " 
             data-aos="zoom-out"
             >
             <a href="/InternshipR">
@@ -294,7 +320,7 @@ const LandingPage = () => {
                 </p>
                 </a>
             </div>
-            <div className="bg-gray-600  cursor-pointer text-white p-6 rounded-lg shadow-md hover: hover:duration-300 hover:ease-in-out hover:scale-110 hover:bg-gray-800 " 
+            <div className="bg-gray-700  cursor-pointer text-white p-6 rounded-lg shadow-md hover: hover:duration-300 hover:ease-in-out hover:scale-110 hover:bg-gray-800 " 
             data-aos="zoom-out"
             >
             <a href="/CoverLetter">
@@ -309,6 +335,30 @@ const LandingPage = () => {
                 </p>
                 </a>
             </div>
+          </div>
+        </div>
+
+
+        {/* get started today image */}
+        <div className="container mx-auto text-center mt-16 justify-center w-full items-center flex flex-col">
+        <Image src={gs} width={958} height={765} alt="get started" className="rounded-lg" 
+        data-aos="fade-up"
+        />
+
+          <h2 className="text-4xl font-extrabold"
+          data-aos="fade-up"
+          >Get Started Today</h2>
+          <div data-aos="fade-up">
+  <p className="mt-4 text-gray-600" >Start taking notes and organize your thoughts today.</p>
+          </div>
+        
+          <div className="mt-8">
+          <Link className="text-gray-800 text-xl font-semibold"  href='/dashboard'>
+      <Button className="mt-8 px-10 py-6 hover:duration-300 hover:ease-in-out hover:scale-105 hover:opacity-70 hover:"
+      data-aos="fade-up"
+      >Get Started
+            <ArrowRight className="w-4 h-4 float-right" /></Button>
+          </Link>
           </div>
         </div>
       </section>

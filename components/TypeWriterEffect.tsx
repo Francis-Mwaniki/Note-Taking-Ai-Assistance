@@ -10,7 +10,7 @@ const TypeWriterEffect = (props: Props) => {
         loop: true,
       }}
       onInit={(typewriter) => {
-        typewriter.typeString(`Supercharged Fast Ai Assistant.`)
+        typewriter.typeString(`Supercharged Fast.`)
             .pauseFor(2000)
             .deleteAll()
             .typeString(` Easy to use.`)
