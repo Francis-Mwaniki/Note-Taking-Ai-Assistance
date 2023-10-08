@@ -33,37 +33,16 @@ const [editorState, setEditorState] = React.useState(
     
     const { complete, completion,stop, isLoading, } = useCompletion({
     api : "/api/coverLetter",
-    
    });
  
  
     const lastCompletion = React.useRef("");
-    /* console.log(description);
-console.log(internshipTitle);
-console.log(projectTitle);
-console.log(studentName);
-console.log(schoolName);
-console.log(campusName);
-console.log(courseName);
-console.log(studentId);
-console.log(supervisorName);
-console.log(supervisorEmail);
-console.log(supervisorPhone);
-console.log(startDate);
-console.log(endDate);
-console.log(duration);
-console.log(reportTitle);
-console.log(reportType);
-console.log(GenerateCoverLetterat);
-console.log(companyName); */
-
-/* 
 
     
      
    
     
-*/
+
     const handleGenerateReport = async ({ 
          companyName,
                 companyAddress,
