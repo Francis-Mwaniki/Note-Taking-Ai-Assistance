@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import about from '@/public/about.png';
 import about2 from '@/public/about2.png';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog'
 import about3 from '@/public/about3.png';
 import fl from '@/public/fl.png';
 import blog from '@/public/bl.jpg';
@@ -17,6 +18,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import BlogGenerator from './BlogGenerator';
 const dm_sans= DM_Sans({ subsets: ['latin'] })
+const quicksand = Quicksand({ subsets: ['latin'] })
 const poppins= Poppins({
   subsets: ['latin'],
   weight: '400'
@@ -33,7 +35,7 @@ const LandingPage = () => {
   };
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className={poppins.className}>
+    <div className={quicksand.className}>
       {/* Header */}
       <header className=" text-white relative">
 
@@ -150,33 +152,9 @@ const LandingPage = () => {
       </section>
 
       {/* Open Generate a blog component */}
-      {isOpen && (
- <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" >
- <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 sm:mt-16 mt-20" >
-<div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-<span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-<div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" >
-  <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" >
-    <div className="sm:flex sm:items-start" >
-      <div className="mt-3 text-center sm:mt-0 sm:text-left" >
-        <h3 className="text-lg leading-6 font-medium text-gray-900 text-center" id="modal-title" >
-          Generate a Blog
-        </h3>
-        <div className="mt-2">
-        <BlogGenerator setIsOpen={setIsOpen} />
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse" >
-    <Button type="button"  onClick={() => setIsOpen(false)}>
-      Close
-    </Button>
-  </div>
-</div>
-</div>
-</div>
-      )}
+
+
+     
     
       {/* Generate sample blog  */}
       <section className="py-16" id="generate">
@@ -190,7 +168,12 @@ const LandingPage = () => {
                 <p className="mt-4 ">
                   Select a topic and generate a sample blog with a single click. Fill in the details and get your blog in seconds.
                   .</p>
-                    <a className="text-gray-800 text-xl font-semibold">
+                  
+              <Dialog>
+                 <div className=" flex justify-center items-center mx-auto ">
+                
+                  <DialogTrigger>
+                  <a className="text-gray-800 text-xl font-semibold">
         <Button className="mt-8 px-10 py-6  hover:duration-300 hover:ease-in-out hover:scale-105 hover:opacity-70 hover:"
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
@@ -198,6 +181,28 @@ const LandingPage = () => {
         > Generate Now
               <ArrowRight className="w-4 h-4 float-right" /></Button>
             </a>
+                  </DialogTrigger>
+                
+                </div>
+                 {isOpen && (
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>AI Blog Generator</DialogTitle>
+      <DialogDescription>
+        <div className="flex flex-col gap-y-3 ">
+  <BlogGenerator setIsOpen={setIsOpen} />
+         <Button type="button"  onClick={() => setIsOpen(false)}>
+      Close
+    </Button>
+        </div>
+    
+      </DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+   )}
+</Dialog>
+     
+                 
               </div>
               <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col"
            data-aos="fade-up"
