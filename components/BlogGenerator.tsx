@@ -7,7 +7,7 @@ import { Input } from './ui/input'
 import { Card, CardHeader, CardTitle } from './ui/card'
 import { useCompletion } from 'ai/react'
 import { Quicksand, DM_Sans, Inter, Poppins} from 'next/font/google'
-import { ArrowLeft, HeartHandshake, Loader2, Sparkle, Sparkles, Tags } from 'lucide-react'
+import { ArrowLeft, HeartHandshake, Loader2, Sparkle, Sparkles, StopCircle, Tags } from 'lucide-react'
 import { Button } from './ui/button'
 const poppins= Poppins({
     subsets: ['latin'],
@@ -212,7 +212,7 @@ const BlogGenerator = (props: Props) => {
         stop();
     }
     }>
-        <ArrowLeft size={24} className='mr-2' />
+        <StopCircle size={24} className='mr-2' />
        stop
     </Button>
 )}
