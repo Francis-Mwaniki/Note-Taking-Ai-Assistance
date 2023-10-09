@@ -5,6 +5,7 @@ import about from '@/public/about.png';
 import about2 from '@/public/about2.png';
 import about3 from '@/public/about3.png';
 import fl from '@/public/fl.png';
+import blog from '@/public/bl.jpg';
 import cva from '@/public/cva.png';
 import gs from '@/public/gs.jpg';
 import TypewriterEffect from './TypeWriterEffect';
@@ -14,6 +15,7 @@ import { Button } from './ui/button';
 import { ArrowBigRight, ArrowBigRightIcon, ArrowRight } from 'lucide-react';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import BlogGenerator from './BlogGenerator';
 const dm_sans= DM_Sans({ subsets: ['latin'] })
 const poppins= Poppins({
   subsets: ['latin'],
@@ -29,6 +31,7 @@ const LandingPage = () => {
   const toggleMobileMenu = () => {
     setMobileMenuActive(!mobileMenuActive);
   };
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className={poppins.className}>
       {/* Header */}
@@ -124,10 +127,10 @@ const LandingPage = () => {
       <section className=" sm:py-20 py-7 w-full" id="home">
         <div className="container mx-auto text-center">
         <div >
-           <h1 className="sm:text-5xl text-4xl bg-gradient-to-r from-rose-900 via-blue-500 to-pink-600 bg-clip-text font-extrabold text-transparent tracking-tight"
+           <h1 className="sm:text-5xl text-4xl bg-gradient-to-r from-blue-900 via-pink-500 to-blue-600 bg-clip-text font-extrabold text-transparent tracking-tight animate-pulse"
            
            >
-            Your Assistant.
+            Your Assistant<span className="text-pink-600  text-7xl animate-pulse">.</span>
           </h1>
           </div>
          
@@ -145,6 +148,67 @@ const LandingPage = () => {
           
         </div>
       </section>
+
+      {/* Open Generate a blog component */}
+      {isOpen && (
+ <div className="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true" >
+ <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0 sm:mt-16 mt-20" >
+<div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+<span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+<div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" >
+  <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4" >
+    <div className="sm:flex sm:items-start" >
+      <div className="mt-3 text-center sm:mt-0 sm:text-left" >
+        <h3 className="text-lg leading-6 font-medium text-gray-900 text-center" id="modal-title" >
+          Generate a Blog
+        </h3>
+        <div className="mt-2">
+        <BlogGenerator setIsOpen={setIsOpen} />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse" >
+    <Button type="button"  onClick={() => setIsOpen(false)}>
+      Close
+    </Button>
+  </div>
+</div>
+</div>
+</div>
+      )}
+    
+      {/* Generate sample blog  */}
+      <section className="py-16" id="generate">
+        <div className="container mx-auto">
+          <div className="flex items-center justify-center space-x-10 sm:flex-row-reverse flex-col py-4 sm:py-1 gap-2">
+            <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col"  
+           data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+              >
+                <h2 className="text-3xl font-semibold sm:text-start text-center">Generate a blog</h2>
+                <p className="mt-4 ">
+                  Select a topic and generate a sample blog with a single click. Fill in the details and get your blog in seconds.
+                  .</p>
+                    <a className="text-gray-800 text-xl font-semibold">
+        <Button className="mt-8 px-10 py-6  hover:duration-300 hover:ease-in-out hover:scale-105 hover:opacity-70 hover:"
+        data-aos="fade-up"
+        data-aos-anchor-placement="center-bottom"
+         onClick={() => setIsOpen(true)}
+        > Generate Now
+              <ArrowRight className="w-4 h-4 float-right" /></Button>
+            </a>
+              </div>
+              <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col"
+           data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+              >
+                <Image src={blog} width={958} height={765} alt="About Us" className="rounded-lg" />
+              </div>
+            </div>
+          </div>
+        </section>
+
 
      { /* Generate  a cover letter */}
       <section className="py-16" id="generate">
@@ -218,7 +282,7 @@ const LandingPage = () => {
           </div>
 
           {/* who are we */}
-          <div className="flex items-center justify-center space-x-10 sm:flex-row flex-col-reverse gap-2 py-7 sm:py-2">
+          {/* <div className="flex items-center justify-center space-x-10 sm:flex-row flex-col-reverse gap-2 py-7 sm:py-2">
             <div className="sm:sm:w-1/3 w-full flex justify-center  items-center flex-col"
            data-aos="fade-up"
       data-aos-anchor-placement="center-bottom"
@@ -234,7 +298,7 @@ const LandingPage = () => {
               >
                 <Image src={cva} width={958} height={765} alt="About Us" className="rounded-lg" />
               </div>
-            </div>
+            </div> */}
 
 
           <div className="flex items-center justify-center space-x-10 sm:flex-row flex-col gap-2">
