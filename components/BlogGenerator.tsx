@@ -67,6 +67,20 @@ const BlogGenerator = (props: Props) => {
         description: string,
         tags: string,
     }) => {
+      
+      if(title === ""){
+        toast.error("Please enter a title for the blog");
+        return;
+        }
+        if(description === ""){
+            toast.error("Please enter a description for the blog");
+            return;
+            }
+            if(tags === ""){
+                toast.error("Please enter a tags for the blog");
+                return;
+                }
+
         setLoading(true)
        
         const data = JSON.stringify({
@@ -80,8 +94,9 @@ const BlogGenerator = (props: Props) => {
        
     }
   return (
- <div className={dm_sans.className}>
-<Dialog>
+ <div className={`${dm_sans.className} mx-2
+ ` }>
+<Dialog >
  {!loading && (
     <>
      <DialogTrigger>
@@ -101,7 +116,7 @@ const BlogGenerator = (props: Props) => {
            e.preventDefault()
            handleGenerateBlog({title,description,tags})
          }}
-         className='flex flex-col gap-y-3'
+         className='flex flex-col gap-y-3 mx-1'
          >
 
         <label>
@@ -144,7 +159,7 @@ const BlogGenerator = (props: Props) => {
    <>
     <div>
     
-        <div className='w-full min-w-[500px]'>
+        <div className='w-full mx-auto'>
             {isLoading && (
                 <div className='flex justify-center items-center'>
                     <Loader2 size={64} className='animate-spin' />
@@ -157,13 +172,13 @@ const BlogGenerator = (props: Props) => {
                     onChange={() => {}}
                     className='w-full'
                     readOnly
-                    rows={30}
+                    rows={20}
                 />
 
 {/* copy */}
 <div className='my-2'>
     <Button
-        className='btn btn-primary'
+        className='w-full justify-self-center flex justify-center'
         onClick={() => {
             navigator.clipboard.writeText(completion)
             setIsCopied(true)
